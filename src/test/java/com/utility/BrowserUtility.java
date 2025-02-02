@@ -136,7 +136,7 @@ public abstract class BrowserUtility {
 		SimpleDateFormat format = new SimpleDateFormat("HH-mm-ss");
 		String timeStamp = format.format(date);
 
-		String path = System.getProperty("user.dir") + "//screenshots//" + name + " - " + timeStamp + ".png";
+		String path = "./screenshots/" + name + " - " + timeStamp + ".png";
 		File screenShotFile = new File(path);
 		try {
 			FileUtils.copyFile(screenShotData, screenShotFile);
@@ -145,5 +145,9 @@ public abstract class BrowserUtility {
 			e.printStackTrace();
 		}
 		return path;
+	}
+	
+	public void quit() {
+		driver.get().quit();
 	}
 }
